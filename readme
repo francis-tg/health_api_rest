@@ -1,0 +1,12 @@
+POST /api/patients/: Create a new patient.
+GET /api/patients/: Retrieve a list of patients.
+GET /api/patients/<patient_id>/: Retrieve details of a specific patient.
+PUT /api/patients/<patient_id>/: Update details of a specific patient.
+DELETE /api/patients/<patient_id>/: Delete a specific patient.
+POST /api/maladies/: Create a new maladie.
+GET /api/maladies/: Retrieve a list of maladies.
+GET /api/maladies/<maladie_id>/: Retrieve details of a specific maladie.
+PUT /api/maladies/<maladie_id>/: Update details of a specific maladie.
+DELETE /api/maladies/<maladie_id>/: Delete a specific maladie.
+
+Repeat the pattern for the other models (Prescriptions, Traitement, and EtatMaladie). Adjust the names as needed based on your application's requirements.
