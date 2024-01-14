@@ -31,3 +31,27 @@ class EtatMaladieSerializer(serializers.ModelSerializer):
     class Meta:
         model = EtatMaladie
         fields = "__all__"
+
+
+class PatientWithPrescriptionsSerializer(serializers.ModelSerializer):
+    prescriptions = PrescriptionsSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Patient
+        fields = "__all__"
+
+
+class PatientWithTraitementSerializer(serializers.ModelSerializer):
+    traitements = TraitementSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Patient
+        fields = "__all__"
+
+
+class PatientWithEtatMaladieSerializer(serializers.ModelSerializer):
+    etat_maladies = EtatMaladieSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Patient
+        fields = "__all__"

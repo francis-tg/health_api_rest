@@ -11,6 +11,9 @@ from .views import (
     TraitementRetrieveUpdateDestroyView,
     EtatMaladieListCreateView,
     EtatMaladieRetrieveUpdateDestroyView,
+    PatientWithPrescriptionsView,
+    PatientWithTraitementView,
+    PatientWithEtatMaladieView,
 )
 
 urlpatterns = [
@@ -55,5 +58,20 @@ urlpatterns = [
         "etatmaladies/<int:pk>/",
         EtatMaladieRetrieveUpdateDestroyView.as_view(),
         name="etatmaladie-retrieve-update-destroy",
+    ),
+    path(
+        "patients/<int:pk>/prescriptions/",
+        PatientWithPrescriptionsView.as_view(),
+        name="patient-prescriptions",
+    ),
+    path(
+        "patients/<int:pk>/traitements/",
+        PatientWithTraitementView.as_view(),
+        name="patient-traitement",
+    ),
+    path(
+        "patients/<int:pk>/etatmaladies/",
+        PatientWithEtatMaladieView.as_view(),
+        name="patient-etatmaladie",
     ),
 ]

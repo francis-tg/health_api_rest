@@ -1,12 +1,16 @@
 # views.py
 from rest_framework import generics
-from .models import Maladie, Prescriptions, Traitement, EtatMaladie,Patient
+from .models import Patient, Maladie, Prescriptions, Traitement, EtatMaladie
 from .serializers import (
+    PatientSerializer,
     MaladieSerializer,
     PrescriptionsSerializer,
     TraitementSerializer,
     EtatMaladieSerializer,
-    PatientSerializer
+    PatientWithPrescriptionsSerializer,
+    PatientWithTraitementSerializer,
+    PatientWithEtatMaladieSerializer,
+    
 )
 
 
@@ -18,6 +22,21 @@ class PatientListCreateView(generics.ListCreateAPIView):
 class PatientRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
+
+
+class PatientWithPrescriptionsView(generics.RetrieveAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientWithPrescriptionsSerializer
+
+
+class PatientWithTraitementView(generics.RetrieveAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientWithTraitementSerializer
+
+
+class PatientWithEtatMaladieView(generics.RetrieveAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = PatientWithEtatMaladieSerializer
 
 
 class MaladieListCreateView(generics.ListCreateAPIView):
